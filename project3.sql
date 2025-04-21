@@ -17,21 +17,21 @@ DROP TABLE movie_genre CASCADE CONSTRAINTS;
 
 CREATE TABLE director (
 name VARCHAR2 (30) CONSTRAINT director_name_pk PRIMARY KEY,
-description VARCHAR2 (5000),
+description CLOB,
 dob DATE,
 dod DATE
 );
 
 CREATE TABLE writer (
 name VARCHAR2 (30) CONSTRAINT writer_name_pk PRIMARY KEY,
-description VARCHAR2 (5000),
+description CLOB,
 dob DATE,
 dod DATE
 );
 
 CREATE TABLE actor (
 name VARCHAR2 (30) CONSTRAINT actor_name_pk PRIMARY KEY,
-description VARCHAR2 (5000),
+description CLOB,
 dob DATE,
 dod DATE
 );
@@ -78,14 +78,14 @@ season_number NUMBER (2),
 episode_number NUMBER (2),
 name VARCHAR2 (20),
 length NUMBER (4),
-description VARCHAR2 (1000),
+description CLOB,
 initial_air_date DATE,
 CONSTRAINT episode_id_sn_en_pk PRIMARY KEY (tv_show_id, season_number, episode_number)
 );
 
 CREATE TABLE tv_show (
 id VARCHAR2 (20) CONSTRAINT tv_show_id_pk PRIMARY KEY,
-description VARCHAR2 (5000),
+description CLOB,
 tv_show_name VARCHAR2 (30)
 );
 
@@ -104,7 +104,7 @@ CONSTRAINT tv_id_genre_pk PRIMARY KEY (tv_show_id, genre)
 CREATE TABLE movie (
 id VARCHAR2 (20) CONSTRAINT movie_id_pk PRIMARY KEY,
 movie_name VARCHAR2 (30),
-description VARCHAR2 (5000),
+description CLOB,
 duration NUMBER(4),
 rating NUMBER(2,1)
 );
@@ -207,6 +207,35 @@ Nolan s second film was Memento (2000), which he directed from his own screenpla
 The turning point in Nolan s career occurred when he was awarded the chance to revive the Batman franchise in 2005. In Batman Begins (2005), Nolan brought a level of gravitas back to the iconic hero, and his gritty, modern interpretation was greeted with praise from fans and critics alike. Before moving on to a Batman sequel, Nolan directed, co-wrote, and produced the mystery thriller The Prestige (2006), starring Christian Bale and Hugh Jackman as magicians whose obsessive rivalry leads to tragedy and murder.
 ', TO_DATE('1970-07-30', 'YYYY-MM-DD'), NULL);
 
+insert into actor (name, description, dob, dod)
+values('Tim Robbins', 'Born in West Covina, California, but raised in New York City, Tim Robbins is the son of former The Highwaymen singer Gil Robbins and actress Mary Robbins (née Bledsoe). Robbins studied drama at UCLA, where he graduated with honors in 1981. That same year, he formed the Actors'' Gang theater group, an experimental ensemble that expressed radical political observations through the European avant-garde form of theater. He started film work in television movies in 1983, but hit the big time in 1988 with his portrayal of dimwitted fastball pitcher "Nuke" Laloosh in Bull Durham (1988). Tall with baby-faced looks, he has the ability to play naive and obtuse (Cadillac Man (1990) and The Hudsucker Proxy (1994)) or slick and shrewd (The Player (1992) and Bob Roberts (1992)).
+- IMDb Mini Biography By: Ray Hamel', TO_DATE('1958-10-16', 'YYYY-MM-DD'), NULL);
+insert into actor (name, description, dob, dod)
+values('Marlon Brando', 'Marlon Brando is widely considered the greatest movie actor of all time, rivaled only by the more theatrically oriented Laurence Olivier in terms of esteem. Unlike Olivier, who preferred the stage to the screen, Brando concentrated his talents on movies after bidding the Broadway stage adieu in 1949, a decision for which he was severely criticized when his star began to dim in the 1960s and he was excoriated for squandering his talents. No actor ever exerted such a profound influence on succeeding generations of actors as did Brando. More than 50 years after he first scorched the screen as Stanley Kowalski in the movie version of Tennessee Williams'' A Streetcar Named Desire (1951) and a quarter-century after his last great performance as Col. Kurtz in Francis Ford Coppola''s Apocalypse Now (1979), all American actors are still being measured by the yardstick that was Brando. It was if the shadow of John Barrymore, the great American actor closest to Brando in terms of talent and stardom, dominated the acting field up until the 1970s. He did not, nor did any other actor so dominate the public''s consciousness of what WAS an actor before or since Brando''s 1951 on-screen portrayal of Stanley made him a cultural icon. Brando eclipsed the reputation of other great actors circa 1950, such as Paul Muni and Fredric March. Only the luster of Spencer Tracy''s reputation hasn''t dimmed when seen in the starlight thrown off by Brando. However, neither Tracy nor Olivier created an entire school of acting just by the force of his personality. Brando did.',
+       TO_DATE('1924-04-03', 'YYYY-MM-DD'), TO_DATE('2004-07-01', 'YYYY-MM-DD'));
+insert into actor (name, description, dob, dod)
+values('Jack Black', 'Thomas Jacob "Jack" Black was born on August 28, 1969 in Santa Monica, California and raised in Hermosa Beach, California to Judith Love Cohen '|| '&' ||' Thomas William Black, both satellite engineers. He is of Russian Jewish '|| '&' || 'British-German ancestry. Black attended the University of California at Los Angeles. While at UCLA, he was a member of Tim Robbins'' acting troupe '|| '&' ||' it was through this collaboration that led to his 1992 film debut in Bob Roberts (1992). Although he was just a background voice in his first film, Jack''s appearances in such television shows as The X-Files (1993), his breakthrough performance in High Fidelity (2000)'|| '&' ||'his rock-comedy band, Tenacious D have created an ever-growing cult following.
+- IMDb Mini Biography By: Anonymous', TO_DATE('1969-08-28', 'YYYY-MM-DD'), NULL);
+insert into actor (name, description, dob, dod)
+values('Michael J. Fox', 'Michael J. Fox was born Michael Andrew Fox on June 9, 1961 in Edmonton, Alberta, Canada, to Phyllis Fox (née Piper), a payroll clerk, and William Fox. His parents moved their 10-year-old son, his three sisters, Kelli Fox, Karen, and Jacki, and his brother Steven, to Vancouver, British Columbia, after his father, a sergeant in the Canadian Army Signal Corps, retired. During these years Michael developed his desire to act. At 15 he successfully auditioned for the role of a 10-year-old in a series called Leo and Me (1978). Gaining attention as a bright new star in Canadian television and movies, Michael realized his love for acting when he appeared on stage in "The Shadow Box." At 18 he moved to Los Angeles and was offered a few television-series roles, but soon they stopped coming and he was surviving on boxes of macaroni and cheese. Then his agent called to tell him that he got the part of Alex P. Keaton on the situation comedy Family Ties (1982). He starred in the feature films Teen Wolf (1985), High School U.S.A. (1983), Poison Ivy (1985) and Back to the Future (1985).
+- IMDb Mini Biography By: A. Nonymous', TO_DATE('1961-06-09', 'YYYY-MM-DD'), NULL);
+insert into actor (name, description, dob, dod)
+values('Matthew McConaughey', 'American actor and producer Matthew David McConaughey was born in Uvalde, Texas. His mother, Mary Kathleen (McCabe), is a substitute school teacher originally from New Jersey. His father, James Donald McConaughey, was a Mississippi-born gas station owner who ran an oil pipe supply business. He is of Irish, Scottish, German, English, and Swedish descent. Matthew grew up in Longview, Texas, where he graduated from the local High School (1988). Showing little interest in his father''s oil business, which his two brothers later joined, Matthew was longing for a change of scenery, and spent a year in Australia, washing dishes and shoveling chicken manure. Back to the States, he attended the University of Texas in Austin, originally wishing to be a lawyer. But, when he discovered an inspirational Og Mandino book "The Greatest Salesman in the World" before one of his final exams, he suddenly knew he had to change his major from law to film.', TO_DATE('1969-11-04', 'YYYY-MM-DD'), NULL);
+
+insert into writer (name, description, dob, dod)
+values('Robert Zemeckis', 'A whiz-kid with special effects, Robert is from the Spielberg camp of film-making (Steven Spielberg produced many of his films). Usually working with writing partner Bob Gale, Robert''s earlier films show he has a talent for zany comedy (Romancing the Stone (1984), 1941 (1979)) and special effect vehicles (Who Framed Roger Rabbit (1988) and Back to the Future (1985)). His later films have become more serious, with the hugely successful Tom Hanks vehicle Forrest Gump (1994) and the Jodie Foster film Contact (1997), both critically acclaimed movies. Again, these films incorporate stunning effects. Robert has proved he can work a serious story around great effects.
+- IMDb Mini Biography By: David Wilcock <david.wilcock@btinternet.com>', TO_DATE('1951-05-14', 'YYYY-MM-DD'), NULL);
+insert into writer (name, description, dob, dod)
+values('Chris Bowman', 'Chris Bowman is known for A Minecraft Movie (2025), Ninety-Five Senses (2022) and Middle School: The Worst Years of My Life (2016).', NULL, NULL);
+insert into writer (name, description, dob, dod)
+values('Mario Puzo', 'Mario Puzo was born October 15, 1920, in "Hell''s Kitchen" on Manhattan''s (NY) West Side and, following military service in World War II, attended New York''s New School for Social Research and Columbia University. His best-known novel, "The Godfather," was preceded by two critically acclaimed novels, "The Dark Arena" and "The Fortunate Pilgrim." In 1978, he published "Fools Die," followed by "The Sicilian" (1984) and "The Fourth K" (1991). Mario Puzo has also written several screenplays, including Earthquake (1974), Superman (1978), and all three "Godfather" movies, for which he received two Academy Awards. Mario''s latest novel, 1996''s "The Last Don," was made into a CBS television miniseries in May 1997, starring Danny Aiello, Kirstie Alley and Joe Mantegna. In 1997, Part II was aired. Also in 1997, Mario''s "The Fortunate Pilgrim" was re-released by Random House. Mario passed away July 2, 1999, at his home in Bay Shore, Long Island. His last novel, "Omerta," will be published July, 2000. He is survived by his companion of 20 years, Carol Gino, and five children.
+- IMDb Mini Biography By: J Geoff Malta <jgeoff@jgeoff.com>', TO_DATE('1920-10-15', 'YYYY-MM-DD'), NULL);
+insert into writer (name, description, dob, dod)
+values('Stephen King', 'Stephen Edwin King was born on September 21, 1947, at the Maine General Hospital in Portland. His parents were Nellie Ruth (Pillsbury), who worked as a caregiver at a mental institute, and Donald Edwin King, a merchant seaman. His father was born under the surname "Pollock," but used the last name "King," under which Stephen was born. He has an older brother, David. The Kings were a typical family until one night, when Donald said he was stepping out for cigarettes and was never heard from again. Ruth took over raising the family with help from relatives. They traveled throughout many states over several years, finally moving back to Durham, Maine, in 1958.', TO_DATE('1947-09-21', 'YYYY-MM-DD'), NULL);
+insert into writer (name, description, dob, dod)
+values('Jonathan Nolan', 'Attended Loyola Academy in Wilmette, Illinois, graduating in 1994. Graduated from Georgetown University in Washington, D.C. in 1999. Majored in English. Shortly after graduating from Georgetown University, Jonathan Nolan served as a production assistant on Memento (2000). Wrote the short story, "Memento Mori", on which the film Memento (2000) is based.Was co-writer, with his brother Christopher Nolan, on The Prestige (2006), The Dark Knight (2008) and The Dark Knight Rises (2012). Also co-wrote the Terminator Salvation (2009).
+- IMDb Mini Biography By: Peter A.', TO_DATE('1976-06-06', 'YYYY-MM-DD'), NULL);
+
 insert into movie (id, movie_name, description, duration, rating)
 values ('tt0111161', 'The Shawshank Redemption', 'A banker convicted of uxoricide forms a friendship over a quarter century with a hardened convict, 
 while maintaining his innocence and trying to remain hopeful through simple compassion.', 182, 9.3);
@@ -223,6 +252,39 @@ insert into movie (id, movie_name, description, duration, rating)
 values ('tt0816692', 'Interstellar', 'When Earth becomes uninhabitable in the future, a farmer and ex-NASA pilot, Joseph Cooper, 
 is tasked to pilot a spacecraft, along with a team of researchers, to find a new planet for humans.', 169, 8.7);
 
+insert into directs_movie (movie_id, director_name)
+values('tt0111161', 'Frank Darabont');
+insert into directs_movie (movie_id, director_name)
+values('tt0068646', 'Francis Ford Coppola');
+insert into directs_movie (movie_id, director_name)
+values('tt3566834', 'Jared Hess');
+insert into directs_movie (movie_id, director_name)
+values('tt0088763', 'Robert Zemeckis');
+insert into directs_movie (movie_id, director_name)
+values('tt0816692', 'Christopher Nolan');
+
+insert into acts_movie (movie_id, actor_name)
+values('tt0111161', 'Tim Robbins');
+insert into acts_movie (movie_id, actor_name)
+values('tt0068646', 'Marlon Brando');
+insert into acts_movie (movie_id, actor_name)
+values('tt3566834', 'Jack Black');
+insert into acts_movie (movie_id, actor_name)
+values('tt0088763', 'Michael J. Fox');
+insert into acts_movie (movie_id, actor_name)
+values('tt0816692', 'Matthew McConaughey');
+
+insert into writes_movie (movie_id, writer_name)
+values('tt0111161', 'Stephen King');
+insert into writes_movie (movie_id, writer_name)
+values('tt0068646', 'Mario Puzo');
+insert into writes_movie (movie_id, writer_name)
+values('tt3566834', 'Chris Bowman');
+insert into writes_movie (movie_id, writer_name)
+values('tt0088763', 'Robert Zemeckis');
+insert into writes_movie (movie_id, writer_name)
+values('tt0816692', 'Jonathan Nolan');
+
 insert into tv_show (id, description, tv_show_name)
 values ('tt0903747', 'A chemistry teacher diagnosed with inoperable lung cancer turns to manufacturing 
 and selling methamphetamine with a former student to secure his familys future.', 'Breaking Bad');
@@ -237,6 +299,77 @@ values ('tt0108778', 'Follows the personal and professional lives of six twenty 
 living in the Manhattan borough of New York City.', 'Friends');
 insert into tv_show (id, description, tv_show_name)
 values ('tt0121955', 'Follows the misadventures of four irreverent grade-schoolers in the quiet, dysfunctional town of South Park, Colorado.', 'South Park');
+
+insert into director (name, description, dob, dod)
+values('Vince Gilligan', 'George Vincent Gilligan Jr. (born February 10, 1967) is an American writer, producer, and director. He is known for his television work, specifically as creator, head writer, executive producer, and director of Breaking Bad and its spin-off Better Call Saul. He was a writer and producer for The X-Files and was the co-creator of its spin-off The Lone Gunmen.', TO_DATE('1967-02-10', 'YYYY-MM-DD'), NULL);
+insert into director (name, description, dob, dod)
+values('Dan Harmon', 'Dan Harmon was born on January 3, 1973 in Milwaukee, Wisconsin, USA. He is best known as the creator, writing, and producer for Community (2009) and Rick and Morty (2013). He also is known for writing and producing earlier works such as Computerman (2003), and Laser Fart (2004). He was previously married to Erin McGathy.
+- IMDb Mini Biography By: Brave-traveler', TO_DATE('1973-01-03', 'YYYY-MM-DD'), NULL);
+insert into director (name, description, dob, dod)
+values('Jason Hehir', 'Jason Hehir was born on 29 September 1976 in Newton, Massachusetts, USA. He is a producer and director, known for The Last Dance (2020), UFC Primetime (2009) and 30 for 30 (2009).', TO_DATE('1976-09-29', 'YYYY-MM-DD'), NULL);
+insert into director (name, description, dob, dod)
+values('Michael Lembeck', 'Michael Lembeck was born in Brooklyn, New York, USA to Harvey Lembeck and Caroline Lembeck, both in show business. He graduated from Beverly Hills High School in 1966 and his classmates in a drama course included Rob Reiner, Albert Brooks and Richard Dreyfuss.After continuing his drama studies at Los Angeles City College and Cal State, he added singing and dancing lessons, and performed in summer stock productions. He toured with the original National company of the Broadway hit, "Grease", with John Travolta as his roommate.', TO_DATE('1948-06-25', 'YYYY-MM-DD'), NULL);
+insert into director (name, description, dob, dod)
+values('Eric Stough', 'Eric Stough is known for South Park (1997), Team America: World Police (2004) and South Park: Bigger, Longer '|| '&' ||' Uncut (1999).', NULL, NULL);
+
+insert into writer (name, description, dob, dod)
+values('Vince Gilligan', 'George Vincent Gilligan Jr. (born February 10, 1967) is an American writer, producer, and director. He is known for his television work, specifically as creator, head writer, executive producer, and director of Breaking Bad and its spin-off Better Call Saul. He was a writer and producer for The X-Files and was the co-creator of its spin-off The Lone Gunmen.', TO_DATE('1967-02-10', 'YYYY-MM-DD'), NULL);
+insert into writer (name, description, dob, dod)
+values('Dan Harmon', 'Dan Harmon was born on January 3, 1973 in Milwaukee, Wisconsin, USA. He is best known as the creator, writing, and producer for Community (2009) and Rick and Morty (2013). He also is known for writing and producing earlier works such as Computerman (2003), and Laser Fart (2004). He was previously married to Erin McGathy.
+- IMDb Mini Biography By: Brave-traveler', TO_DATE('1973-01-03', 'YYYY-MM-DD'), NULL);
+insert into writer (name, description, dob, dod)
+values ('David Crane', 'David Crane was born on August 13, 1957 in Philadelphia, Pennsylvania, USA. He is a writer and producer, known for Friends (1994), Dream On (1990) and Episodes (2011).', TO_DATE('1957-08-13', 'YYYY-MM-DD'), NULL);
+insert into writer (name, description, dob, dod)
+values('Trey Parker', 'Trey was born in Conifer, Colorado, on October 19, 1969 to Randy Parker, a geologist, and Sharon Parker, an insurance broker. He has an older sister, Shelley Parker. He met Matt Stone (co-creator of South Park (1997)) while attending the University of Colorado in Boulder, where he had a double major of music and Japanese. While at UCB he wrote, directed and starred in Cannibal! The Musical (1993) (aka "Cannibal: The Musical!") based on a true episode in Colorado''s history. After graduation from UCB (rumors that he didn''t due to skipping classes to work on the movie are false), he and Stone were asked by then-FoxLab executive Brian Graden to create an animated Christmas card for his friends and family. The now infamous short, titled The Spirit of Christmas (1995), led to South Park (1997).
+- IMDb Mini Biography By: Slick Matecheck sickslick27@yahoo.com', TO_DATE('1969-10-19', 'YYYY-MM-DD'), NULL);
+
+insert into actor (name, description, dob, dod)
+values('Bryan Cranston', 'Bryan Lee Cranston was born on March 7, 1956 in Hollywood, California, to Audrey Peggy Sell, a radio actress, and Joe Cranston, an actor and former amateur boxer. His maternal grandparents were German, and his father was of Irish, German, and Austrian-Jewish ancestry. He was raised in the Canoga Park neighborhood of Los Angeles, and also stayed with his grandparents, living on their poultry farm in Yucaipa. Cranston''s father walked out on the family when Cranston was eleven, and they did not see each other again until 11 years later, when Cranston and his brother decide to track down their father.', TO_DATE('1956-03-07', 'YYYY-MM-DD'), NULL);
+insert into actor (name, description, dob, dod)
+values('Chris Parnell', 'Born and raised in Memphis, Tennessee, Chris Parnell enrolled at Germantown High School where he took drama and auditioned for every play. In 1985, when he was a senior at Germantown, he was voted "Most Talented" by his classmates. Right after graduating high school, Chris attended North Carolina School of Arts in Winston-Salem, where he received his BFA in Drama. He later performed with the Berkshire Theatre in Stockbridge, Massachusetts, and the Alley Theatre in Houston, Texas. Afterwards Chris moved back to Tennessee and taught acting, film, and video at his own Germantown High School. He became bored, however, with teaching and moved to Los Angeles. Once in LA, he got a job at FAO Schwartz in Beverly Center, where he eventually became Operations Manager. During that time, Chris began taking classes at The Groundlings Main Company, where many Saturday Night Live (1975) cast members are discovered. Fate would have it that talent scouts from Saturday Night Live (1975) saw him and asked him to fly to New York for an audition. Completely surprised by his chances, he took the offer. To his amazement soon after he joined Saturday Night Live (1975) and became a featured player in the 1998-99 season. Parnell has since performed many impressions as NBC News'' Tom Brokaw, former House Speaker Newt Gingrich, Tom Hanks, Senator John McCain, and Eminem. Parnell has also appeared as a member of Saturday Night Live (1975)''s resident boy band "Seven Degrees Celsius," but his biggest claim to fame on the show was when he performed an unforgettable hardcore gansta rap fantasizing about a dream date with Britney Spears on Weekend Update. He spends most of his summers in L.A. where he owns his own car and apartment.
+- IMDb Mini Biography By: Rod Reece', TO_DATE('1967-02-05', 'YYYY-MM-DD'), NULL);
+insert into actor (name, description, dob, dod)
+values('David Aldridge', 'David Aldridge is known for How Sports Feel to People Who Don''t Like Sports (2017), NBA 2K19 (2018) and The Last Dance (2020).', NULL, NULL);
+insert into actor (name, description, dob, dod)
+values('Jennifer Aniston', 'Jennifer Aniston was born in Sherman Oaks, California, to actors John Aniston and Nancy Dow. Her father was Greek, and her mother was of English, Irish, Scottish, and Italian descent. Jennifer spent a year of her childhood living in Greece with her family. Her family then relocated to New York City where her parents divorced when she was nine. Jennifer was raised by her mother and her father landed a role, as "Victor Kiriakis", on the daytime soap Days of Our Lives (1965). Jennifer had her first taste of acting at age 11 when she joined the Rudolf Steiner School''s drama club. It was also at the Rudolf Steiner School that she developed her passion for art. She began her professional training as a drama student at New York''s School of Performing Arts, aka the "Fame" school. It was a division of Fiorello H. LaGuardia High School of Music and the Arts. In 1987, after graduation, she appeared in such Off-Broadway productions as "For Dear Life" and "Dancing on Checker''s Grave". In 1990, she landed her first television role, as a series regular on Molloy (1990). She also appeared in The Edge (1992), Ferris Bueller (1990), and had a recurring part on Herman''s Head (1991). By 1993, she was floundering. Then, in 1994, a pilot called "Friends Like These" came along. Originally asked to audition for the role of "Monica", Aniston refused and auditioned for the role of "Rachel Green", the suburban princess turned coffee peddler. With the success of the series Friends (1994), Jennifer has become famous and sought-after as she turns her fame into movie roles during the series hiatus.
+- IMDb Mini Biography By: cb@lim.nl', TO_DATE('1969-02-11', 'YYYY-MM-DD'), NULL);
+insert into actor (name, description, dob, dod)
+values('Jonny Greenwood', 'Jonny Greenwood was born on November 5, 1971 in Oxford, Oxfordshire, England, UK. He is a composer and actor, known for The Master (2012), There Will Be Blood (2007) and Phantom Thread (2017). He has been married to Sharona Katan since 1995. They have three children.', TO_DATE('1971-11-05', 'YYYY-MM-DD'), NULL);
+
+insert into directs_tv_show (tv_show_id, director_name)
+values('tt0903747', 'Vince Gilligan');
+insert into directs_tv_show (tv_show_id, director_name)
+values('tt2861424', 'Dan Harmon');
+insert into directs_tv_show (tv_show_id, director_name)
+values('tt8420184', 'Jason Hehir');
+insert into directs_tv_show (tv_show_id, director_name)
+values('tt0108778', 'Michael Lembeck');
+insert into directs_tv_show (tv_show_id, director_name)
+values('tt0121955', 'Eric Stough');
+
+insert into writes_tv_show (tv_show_id, writer_name)
+values ('tt0903747', 'Vince Gilligan');
+insert into writes_tv_show (tv_show_id, writer_name)
+values ('tt2861424', 'Dan Harmon');
+insert into writes_tv_show (tv_show_id, writer_name)
+values ('tt0108778', 'David Crane');
+insert into writes_tv_show (tv_show_id, writer_name)
+values ('tt0121955', 'Trey Parker');
+
+insert into acts_tv_show (tv_show_id, actor_name)
+values('tt0903747', 'Bryan Cranston');
+insert into acts_tv_show (tv_show_id, actor_name)
+values('tt2861424', 'Chris Parnell');
+insert into acts_tv_show (tv_show_id, actor_name)
+values('tt8420184', 'David Aldridge');
+insert into acts_tv_show (tv_show_id, actor_name)
+values('tt0108778', 'Jennifer Aniston');
+insert into acts_tv_show (tv_show_id, actor_name)
+values('tt0121955', 'Jonny Greenwood');
+
+
+
+
 
 
 

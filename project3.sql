@@ -76,8 +76,8 @@ CREATE TABLE episode (
 tv_show_id VARCHAR2 (20),
 season_number NUMBER (2),
 episode_number NUMBER (2),
-name VARCHAR2 (20),
-length NUMBER (4),
+name VARCHAR2 (50),
+length CHAR (5),
 description CLOB,
 initial_air_date DATE,
 CONSTRAINT episode_id_sn_en_pk PRIMARY KEY (tv_show_id, season_number, episode_number)
@@ -91,13 +91,13 @@ tv_show_name VARCHAR2 (30)
 
 CREATE TABLE tv_show_streaming_service (
 tv_show_id VARCHAR2 (20),
-streaming_service VARCHAR (15),
+streaming_service VARCHAR (30),
 CONSTRAINT tv_id_ss_pk PRIMARY KEY (tv_show_id, streaming_service)
 );
 
 CREATE TABLE tv_show_genre (
 tv_show_id VARCHAR2 (20),
-genre VARCHAR (15),
+genre VARCHAR (30),
 CONSTRAINT tv_id_genre_pk PRIMARY KEY (tv_show_id, genre)
 );
 
@@ -111,13 +111,13 @@ rating NUMBER(2,1)
 
 CREATE TABLE movie_streaming_service (
 movie_id VARCHAR2 (20),
-streaming_service VARCHAR (15),
+streaming_service VARCHAR (30),
 CONSTRAINT movie_id_ss_pk PRIMARY KEY (movie_id, streaming_service)
 );
 
 CREATE TABLE movie_genre (
 movie_id VARCHAR2 (20),
-genre VARCHAR (15),
+genre VARCHAR (30),
 CONSTRAINT movie_id_genre_pk PRIMARY KEY (movie_id, genre)
 );
 
@@ -367,12 +367,310 @@ values('tt0108778', 'Jennifer Aniston');
 insert into acts_tv_show (tv_show_id, actor_name)
 values('tt0121955', 'Jonny Greenwood');
 
+insert into episode (tv_show_id, season_number, episode_number, name, length, description, initial_air_date)
+values('tt0903747', 1, 1, 'Pilot', '00:58', 'After being diagnosed with terminal lung cancer, a struggling high school chemistry teacher makes a drastic choice to secure his family''s future--turning to the drug trade with a former student.'
+, TO_DATE('2008-01-20', 'YYYY-MM-DD'));
+insert into episode (tv_show_id, season_number, episode_number, name, length, description, initial_air_date)
+values('tt0903747', 1, 2, 'Cat''s in the Bag...', '00:48', 'Walter and Jesse scramble to deal with the consequences of their first cook, leading to a tense and unexpected dilemma. Meanwhile, Skyler grows suspicious of Walter''s strange behavior.'
+, TO_DATE('2008-01-27', 'YYYY-MM-DD'));
+insert into episode (tv_show_id, season_number, episode_number, name, length, description, initial_air_date)
+values('tt0903747', 1, 3, '...And the Bag''s in the River', '00:48', 'Walter is forced to make a life-altering decision as he and Jesse deal with the fallout of their actions. Meanwhile, Skyler''s suspicions continue to grow, and Hank begins to take notice of Walter''s unusual behavior.'
+, TO_DATE('2008-02-10', 'YYYY-MM-DD'));
 
+insert into episode (tv_show_id, season_number, episode_number, name, length, description, initial_air_date)
+values('tt2861424', 1, 1, 'Pilot', '00:22', 'A strangely eccentric genius scientist and inventor moves into the home of his daughter and her family and begins to strongly influence his young grandson.'
+, TO_DATE('2013-12-02', 'YYYY-MM-DD'));
+insert into episode (tv_show_id, season_number, episode_number, name, length, description, initial_air_date)
+values('tt2861424', 1, 2, 'Lawnmower Dog', '00:22', 'Rick helps Jerry out with the dog.'
+, TO_DATE('2013-12-09', 'YYYY-MM-DD'));
+insert into episode (tv_show_id, season_number, episode_number, name, length, description, initial_air_date)
+values('tt2861424', 1, 3, 'Anatomy Park', '00:22', 'It''s Christmas. Rick shrinks Morty, injecting him into a homeless man to save Anatomy Park. Jerry tries to have a Christmas free of electronic devices, but regrets his decision when his parents introduce him to their new friend.'
+, TO_DATE('2013-12-16', 'YYYY-MM-DD'));
 
+insert into episode (tv_show_id, season_number, episode_number, name, length, description, initial_air_date)
+values('tt8420184', 1, 1, 'Episode I', '00:50', 'Flashbacks chronicle Michael Jordan''s college and early NBA days. The Bulls make a preseason trip to Paris amid tensions with GM Jerry Krause.'
+, TO_DATE('2020-04-19', 'YYYY-MM-DD'));
+insert into episode (tv_show_id, season_number, episode_number, name, length, description, initial_air_date)
+values('tt8420184', 1, 2, 'Episode II', '00:50', '
+Scottie Pippen rises from obscurity to become one of the NBA''s best players. An injury early in Michael''s career sows distrust with Bulls management.'
+, TO_DATE('2020-04-19', 'YYYY-MM-DD'));
+insert into episode (tv_show_id, season_number, episode_number, name, length, description, initial_air_date)
+values('tt8420184', 1, 3, 'Episode III', '00:48', 'Dennis Rodman''s attitude and energy help the team win, but bring the drama off the court. The Bulls struggle to overcome the Pistons in the late ''80s.'
+, TO_DATE('2020-04-26', 'YYYY-MM-DD'));
 
+insert into episode (tv_show_id, season_number, episode_number, name, length, description, initial_air_date)
+values('tt0108778', 1, 1, 'The One Where Monica Gets a Roommate', '00:22', 'Monica and the gang introduce Rachel to the "real world" after she leaves her fiancé at the altar.'
+, TO_DATE('1994-09-22', 'YYYY-MM-DD'));
+insert into episode (tv_show_id, season_number, episode_number, name, length, description, initial_air_date)
+values('tt0108778', 1, 2, 'The One with the Sonogram at the End', '00:22', 'Ross finds out his ex-wife is pregnant. Rachel returns her engagement ring to Barry. Monica becomes stressed when her and Ross''s parents come to visit.'
+, TO_DATE('1994-09-29', 'YYYY-MM-DD'));
+insert into episode (tv_show_id, season_number, episode_number, name, length, description, initial_air_date)
+values('tt0108778', 1, 3, 'The One with the Thumb', '00:22', 'Monica becomes irritated when everyone likes her new boyfriend more than she does. Chandler resumes his smoking habit. Phoebe is given $7000 when she finds a thumb in a can of soda.'
+, TO_DATE('1994-10-06', 'YYYY-MM-DD'));
 
+insert into episode (tv_show_id, season_number, episode_number, name, length, description, initial_air_date)
+values('tt0121955', 1, 0, 'Unaired Pilot', '00:28', 'Cartman wakes up and realizes he was abducted by aliens after hearing it from his friends. He is in major denial at first though, but even Chef is a believer.'
+, TO_DATE('1997-08-13', 'YYYY-MM-DD'));
+insert into episode (tv_show_id, season_number, episode_number, name, length, description, initial_air_date)
+values('tt0121955', 1, 1, 'Cartman Gets an Anal Probe', '00:22', 'Cartman''s dream about being abducted by aliens turns out to have actually happened, and when the aliens take Kyle''s brother, all of them must find a way to bring the aliens back and confront them.'
+, TO_DATE('1997-08-13', 'YYYY-MM-DD'));
+insert into episode (tv_show_id, season_number, episode_number, name, length, description, initial_air_date)
+values('tt0121955', 1, 2, 'Weight Gain 4000', '00:22', 'Kathie Lee Gifford comes to South Park to present an award to Cartman, and Mr. Garrison hopes to use the event to assassinate her.'
+, TO_DATE('1997-08-27', 'YYYY-MM-DD'));
 
+insert into tv_show_genre (tv_show_id, genre)
+values('tt0903747', 'Drug Crime');
+insert into tv_show_genre (tv_show_id, genre)
+values('tt0903747', 'Epic');
+insert into tv_show_genre (tv_show_id, genre)
+values('tt0903747', 'Psychological Drama');
+insert into tv_show_genre (tv_show_id, genre)
+values('tt0903747', 'Psychological Thriller');
+insert into tv_show_genre (tv_show_id, genre)
+values('tt0903747', 'Tragedy');
+insert into tv_show_genre (tv_show_id, genre)
+values('tt0903747', 'Crime');
+insert into tv_show_genre (tv_show_id, genre)
+values('tt0903747', 'Drama');
+insert into tv_show_genre (tv_show_id, genre)
+values('tt0903747', 'Thriller');
 
+insert into tv_show_genre (tv_show_id, genre)
+values('tt2861424', 'Adult Animation');
+insert into tv_show_genre (tv_show_id, genre)
+values('tt2861424', 'Farce');
+insert into tv_show_genre (tv_show_id, genre)
+values('tt2861424', 'Parody');
+insert into tv_show_genre (tv_show_id, genre)
+values('tt2861424', 'Satire');
+insert into tv_show_genre (tv_show_id, genre)
+values('tt2861424', 'Sitcom');
+insert into tv_show_genre (tv_show_id, genre)
+values('tt2861424', 'Time Travel');
+insert into tv_show_genre (tv_show_id, genre)
+values('tt2861424', 'Adventure');
+insert into tv_show_genre (tv_show_id, genre)
+values('tt2861424', 'Animation');
+insert into tv_show_genre (tv_show_id, genre)
+values('tt2861424', 'Comedy');
 
+insert into tv_show_genre (tv_show_id, genre)
+values('tt8420184', 'Basketball');
+insert into tv_show_genre (tv_show_id, genre)
+values('tt8420184', 'Docuseries');
+insert into tv_show_genre (tv_show_id, genre)
+values('tt8420184', 'Sports Documentary');
+insert into tv_show_genre (tv_show_id, genre)
+values('tt8420184', 'Biography');
+insert into tv_show_genre (tv_show_id, genre)
+values('tt8420184', 'Documentary');
+insert into tv_show_genre (tv_show_id, genre)
+values('tt8420184', 'History');
+insert into tv_show_genre (tv_show_id, genre)
+values('tt8420184', 'Sport');
 
+insert into tv_show_genre (tv_show_id, genre)
+values('tt0108778', 'Feel-Good Romance');
+insert into tv_show_genre (tv_show_id, genre)
+values('tt0108778', 'Parody');
+insert into tv_show_genre (tv_show_id, genre)
+values('tt0108778', 'Romantic Comedy');
+insert into tv_show_genre (tv_show_id, genre)
+values('tt0108778', 'Sitcom');
+insert into tv_show_genre (tv_show_id, genre)
+values('tt0108778', 'Comedy');
+insert into tv_show_genre (tv_show_id, genre)
+values('tt0108778', 'Romance');
 
+insert into tv_show_genre (tv_show_id, genre)
+values('tt0121955', 'Adult Animation');
+insert into tv_show_genre (tv_show_id, genre)
+values('tt0121955', 'Computer Animation');
+insert into tv_show_genre (tv_show_id, genre)
+values('tt0121955', 'Dark Comedy');
+insert into tv_show_genre (tv_show_id, genre)
+values('tt0121955', 'Farce');
+insert into tv_show_genre (tv_show_id, genre)
+values('tt0121955', 'Parody');
+insert into tv_show_genre (tv_show_id, genre)
+values('tt0121955', 'Raunchy Comedy');
+insert into tv_show_genre (tv_show_id, genre)
+values('tt0121955', 'Satire');
+insert into tv_show_genre (tv_show_id, genre)
+values('tt0121955', 'Sitcom');
+insert into tv_show_genre (tv_show_id, genre)
+values('tt0121955', 'Animation');
+insert into tv_show_genre (tv_show_id, genre)
+values('tt0121955', 'Comedy');
+
+insert into tv_show_streaming_service (tv_show_id, streaming_service)
+values('tt0903747', 'NETFLIX');
+insert into tv_show_streaming_service (tv_show_id, streaming_service)
+values('tt0903747', 'Prime Video');
+insert into tv_show_streaming_service (tv_show_id, streaming_service)
+values('tt0903747', 'Amazon');
+
+insert into tv_show_streaming_service (tv_show_id, streaming_service)
+values('tt2861424', 'Adult Swim');
+insert into tv_show_streaming_service (tv_show_id, streaming_service)
+values('tt2861424', 'Cartoon Network');
+insert into tv_show_streaming_service (tv_show_id, streaming_service)
+values('tt2861424', 'hulu');
+insert into tv_show_streaming_service (tv_show_id, streaming_service)
+values('tt2861424', 'HBO Max');
+insert into tv_show_streaming_service (tv_show_id, streaming_service)
+values('tt2861424', 'Toku');
+insert into tv_show_streaming_service (tv_show_id, streaming_service)
+values('tt2861424', 'Prime Video');
+insert into tv_show_streaming_service (tv_show_id, streaming_service)
+values('tt2861424', 'Amazon');
+
+insert into tv_show_streaming_service (tv_show_id, streaming_service)
+values('tt8420184', 'NETFLIX');
+insert into tv_show_streaming_service (tv_show_id, streaming_service)
+values('tt8420184', 'ESPN+');
+insert into tv_show_streaming_service (tv_show_id, streaming_service)
+values('tt8420184', 'Prime Video');
+
+insert into tv_show_streaming_service (tv_show_id, streaming_service)
+values('tt0108778', 'Bravo Now');
+insert into tv_show_streaming_service (tv_show_id, streaming_service)
+values('tt0108778', 'E! Now');
+insert into tv_show_streaming_service (tv_show_id, streaming_service)
+values('tt0108778', 'hulu');
+insert into tv_show_streaming_service (tv_show_id, streaming_service)
+values('tt0108778', 'HBO Max');
+insert into tv_show_streaming_service (tv_show_id, streaming_service)
+values('tt0108778', 'NBC');
+insert into tv_show_streaming_service (tv_show_id, streaming_service)
+values('tt0108778', 'NETFLIX');
+insert into tv_show_streaming_service (tv_show_id, streaming_service)
+values('tt0108778', 'Peacock');
+insert into tv_show_streaming_service (tv_show_id, streaming_service)
+values('tt0108778', 'Pluto TV');
+insert into tv_show_streaming_service (tv_show_id, streaming_service)
+values('tt0108778', 'Syfy Now');
+insert into tv_show_streaming_service (tv_show_id, streaming_service)
+values('tt0108778', 'TBS');
+insert into tv_show_streaming_service (tv_show_id, streaming_service)
+values('tt0108778', 'Telemundo Now');
+insert into tv_show_streaming_service (tv_show_id, streaming_service)
+values('tt0108778', 'Tubi');
+
+insert into tv_show_streaming_service (tv_show_id, streaming_service)
+values ('tt0121955', 'Amazon Kids+');
+insert into tv_show_streaming_service (tv_show_id, streaming_service)
+values ('tt0121955', 'BritBox');
+insert into tv_show_streaming_service (tv_show_id, streaming_service)
+values ('tt0121955', 'ESPN+');
+insert into tv_show_streaming_service (tv_show_id, streaming_service)
+values ('tt0121955', 'HBO Max');
+insert into tv_show_streaming_service (tv_show_id, streaming_service)
+values ('tt0121955', 'NickHits');
+insert into tv_show_streaming_service (tv_show_id, streaming_service)
+values ('tt0121955', 'Paramount+');
+insert into tv_show_streaming_service (tv_show_id, streaming_service)
+values ('tt0121955', 'Peacock');
+insert into tv_show_streaming_service (tv_show_id, streaming_service)
+values ('tt0121955', 'Pluto TV');
+insert into tv_show_streaming_service (tv_show_id, streaming_service)
+values ('tt0121955', 'Prime Video');
+insert into tv_show_streaming_service (tv_show_id, streaming_service)
+values ('tt0121955', 'Tubi');
+
+insert into movie_genre (movie_id, genre)
+values ('tt0111161', 'Epic');
+insert into movie_genre (movie_id, genre)
+values ('tt0111161', 'Period Drama');
+insert into movie_genre (movie_id, genre)
+values ('tt0111161', 'Prison Drama');
+insert into movie_genre (movie_id, genre)
+values ('tt0111161', 'Drama');
+
+insert into movie_genre (movie_id, genre)
+values ('tt0068646', 'Epic');
+insert into movie_genre (movie_id, genre)
+values ('tt0068646', 'Gangster');
+insert into movie_genre (movie_id, genre)
+values ('tt0068646', 'Tragedy');
+insert into movie_genre (movie_id, genre)
+values ('tt0068646', 'Crime');
+insert into movie_genre (movie_id, genre)
+values ('tt0068646', 'Drama');
+
+insert into movie_genre (movie_id, genre)
+values ('tt3566834', 'Action Epic');
+insert into movie_genre (movie_id, genre)
+values ('tt3566834', 'Adventure Epic');
+insert into movie_genre (movie_id, genre)
+values ('tt3566834', 'Fantasy Epic');
+insert into movie_genre (movie_id, genre)
+values ('tt3566834', 'High-Concept Comedy');
+insert into movie_genre (movie_id, genre)
+values ('tt3566834', 'Quest');
+insert into movie_genre (movie_id, genre)
+values ('tt3566834', 'Slapstick');
+insert into movie_genre (movie_id, genre)
+values ('tt3566834', 'Survival');
+insert into movie_genre (movie_id, genre)
+values ('tt3566834', 'Action');
+insert into movie_genre (movie_id, genre)
+values ('tt3566834', 'Adventure');
+insert into movie_genre (movie_id, genre)
+values ('tt3566834', 'Comedy');
+
+insert into movie_genre (movie_id, genre)
+values ('tt0088763', 'High-Concept Comedy');
+insert into movie_genre (movie_id, genre)
+values ('tt0088763', 'Teen Adventure');
+insert into movie_genre (movie_id, genre)
+values ('tt0088763', 'Teen Comedy');
+insert into movie_genre (movie_id, genre)
+values ('tt0088763', 'Time Travel');
+insert into movie_genre (movie_id, genre)
+values ('tt0088763', 'Urban Adventure');
+insert into movie_genre (movie_id, genre)
+values ('tt0088763', 'Adventure');
+insert into movie_genre (movie_id, genre)
+values ('tt0088763', 'Comedy');
+insert into movie_genre (movie_id, genre)
+values ('tt0088763', 'Sci-Fi');
+
+insert into movie_genre (movie_id, genre)
+values ('tt0816692', 'Adventure Epic');
+insert into movie_genre (movie_id, genre)
+values ('tt0816692', 'Epic');
+insert into movie_genre (movie_id, genre)
+values ('tt0816692', 'Quest');
+insert into movie_genre (movie_id, genre)
+values ('tt0816692', 'Sci-Fi Epic');
+insert into movie_genre (movie_id, genre)
+values ('tt0816692', 'Space Sci-Fi');
+insert into movie_genre (movie_id, genre)
+values ('tt0816692', 'Time Travel');
+insert into movie_genre (movie_id, genre)
+values ('tt0816692', 'Adventure');
+insert into movie_genre (movie_id, genre)
+values ('tt0816692', 'Drama');
+insert into movie_genre (movie_id, genre)
+values ('tt0816692', 'Sci-Fi');
+
+insert into movie_streaming_service (movie_id, streaming_service)
+values('tt0111161', 'Prime Video');
+insert into movie_streaming_service (movie_id, streaming_service)
+values('tt0111161', 'Amazon');
+
+insert into movie_streaming_service (movie_id, streaming_service)
+values('tt0068646', 'Pluto');
+
+insert into movie_streaming_service (movie_id, streaming_service)
+values('tt0088763', 'Prime Video');
+insert into movie_streaming_service (movie_id, streaming_service)
+values('tt0088763', 'Amazon');
+
+insert into movie_streaming_service (movie_id, streaming_service)
+values('tt0816692', 'hulu');
+insert into movie_streaming_service (movie_id, streaming_service)
+values('tt0816692', 'Paramount+');
+insert into movie_streaming_service (movie_id, streaming_service)
+values('tt0816692', 'Peacock');
